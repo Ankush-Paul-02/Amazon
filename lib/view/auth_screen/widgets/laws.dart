@@ -2,19 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../../utils/colors.dart';
 
-
 class Laws extends StatelessWidget {
   const Laws({
     super.key,
-    required this.width,
-    required this.height,
   });
-
-  final double width;
-  final double height;
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(

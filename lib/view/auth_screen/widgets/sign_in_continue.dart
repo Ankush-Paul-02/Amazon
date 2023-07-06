@@ -8,11 +8,15 @@ class SignInContinueButton extends StatelessWidget {
     required this.width,
     required this.height,
     required this.textTheme,
+    required this.text,
+    required this.onTap,
   });
 
   final double width;
   final double height;
   final TextTheme textTheme;
+  final String text;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +28,8 @@ class SignInContinueButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(5),
         ),
       ),
-      onPressed: () {},
-      child: 'Continue'.text.textStyle(textTheme.displaySmall).make(),
-    ).pSymmetric(h: width * 0.03);
+      onPressed: onTap,
+      child: text.text.textStyle(textTheme.bodyMedium).make(),
+    );
   }
 }
