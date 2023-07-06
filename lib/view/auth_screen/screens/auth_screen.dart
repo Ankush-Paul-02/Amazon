@@ -1,3 +1,4 @@
+import 'package:amazon/controller/services/auth_services/auth_services.dart';
 import 'package:amazon/utils/colors.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
@@ -48,9 +49,9 @@ class _AuthScreenState extends State<AuthScreen> {
               //! Main box
               Builder(builder: (context) {
                 if (inLogin) {
-                  return Login(height, width, textTheme, context);
+                  return login(height, width, textTheme, context);
                 }
-                return Register(height, width, textTheme, context);
+                return register(height, width, textTheme, context);
               }),
 
               //! lower body
@@ -63,7 +64,7 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 
-  Container Register(
+  Container register(
       double height, double width, TextTheme textTheme, BuildContext context) {
     return Container(
       child: Column(
@@ -210,7 +211,7 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 
-  Container Login(
+  Container login(
       double height, double width, TextTheme textTheme, BuildContext context) {
     return Container(
       child: Column(
@@ -312,7 +313,10 @@ class _AuthScreenState extends State<AuthScreen> {
           //! Continue button
           SignInContinueButton(
                   text: 'Continue',
-                  onTap: () {},
+                  onTap: () => AuthServices.receiveOTP(
+                      context: context,
+                      mobileNumber:
+                          '$currentCountryCode${mobileController.text.trim()}'),
                   width: width,
                   height: height,
                   textTheme: textTheme)

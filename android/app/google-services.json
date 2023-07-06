@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "751157825691",
+    "project_id": "fir-adea6",
+    "storage_bucket": "fir-adea6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751157825691:android:1ec5083ec8d8e18dcc763e",
+        "android_client_info": {
+          "package_name": "com.example.amazon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751157825691-bgbmu55sjlrn3p8bg1tcuq06pquphcf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7N2pBUcKhlbV_yDOMVTAv-jR763fgnlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751157825691-bgbmu55sjlrn3p8bg1tcuq06pquphcf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

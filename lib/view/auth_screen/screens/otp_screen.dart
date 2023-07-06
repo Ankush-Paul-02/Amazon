@@ -1,3 +1,4 @@
+import 'package:amazon/controller/services/auth_services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../../utils/colors.dart';
@@ -97,7 +98,8 @@ class _OTPScreenState extends State<OTPScreen> {
               //! Continue button
               SignInContinueButton(
                   text: 'Continue',
-                  onTap: () {},
+                  onTap: () => AuthServices.verifyOTP(
+                      context: context, otp: otpController.text.trim()),
                   width: width,
                   height: height,
                   textTheme: textTheme),
