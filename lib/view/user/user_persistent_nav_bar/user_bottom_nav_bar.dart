@@ -2,7 +2,7 @@ import 'package:amazon/utils/colors.dart';
 import 'package:amazon/view/home/screens/home_screen.dart';
 import 'package:amazon/view/user/cart/cart_screen.dart';
 import 'package:amazon/view/user/menu/menu_screen.dart';
-import 'package:amazon/view/user/product_screen/profile_screen.dart';
+import 'package:amazon/view/user/product_screen/screens/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
