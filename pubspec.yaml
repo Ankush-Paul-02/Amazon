@@ -9,6 +9,7 @@ environment:
   sdk: ">=3.0.3 <4.0.0"
 
 dependencies:
+  carousel_slider: ^4.2.1
   cloud_firestore: ^4.8.2
   country_picker: ^2.0.20
   cupertino_icons: ^1.0.2
@@ -18,6 +19,7 @@ dependencies:
     sdk: flutter
   fluttertoast: ^8.2.2
   page_transition: ^2.0.9
+  persistent_bottom_nav_bar_v2: ^4.2.8
   provider: ^6.0.5
   velocity_x: ^4.1.0
 
