@@ -17,7 +17,6 @@ class CartsSection extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return Container(
-          // height: 30.h,
           width: 100.w,
           padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
           margin: EdgeInsets.symmetric(vertical: 1.h),

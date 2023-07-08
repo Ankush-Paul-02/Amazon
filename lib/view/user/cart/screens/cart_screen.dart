@@ -3,7 +3,7 @@ import 'package:amazon/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../../product_screen/widgets/profile_app_bar.dart';
+import '../../../home/widgets/home_page_app_bar.dart';
 import '../widgets/cart_section.dart';
 
 class CartScreen extends StatefulWidget {
@@ -22,7 +22,7 @@ class _CartScreenState extends State<CartScreen> {
         backgroundColor: white,
         appBar: PreferredSize(
           preferredSize: Size(1.w, 9.h),
-          child: const ProfileScreenAppBar(),
+          child: const HomePageAppBar(),
         ),
         body: SingleChildScrollView(
           child: Column(

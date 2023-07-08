@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../../utils/colors.dart';
 
@@ -22,7 +23,7 @@ class SignInContinueButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(width * 8, height * 0.06),
+        minimumSize: Size(100.w, 6.h),
         backgroundColor: amber,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),

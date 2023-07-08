@@ -1,21 +1,20 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import '../../../constants/constants.dart';
 import '../../../utils/colors.dart';
 
 class HomeCarouselSliders extends StatelessWidget {
   const HomeCarouselSliders({
     super.key,
-    required this.height,
   });
 
-  final double height;
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: height * 0.23,
+        height: 23.h,
         autoPlay: true,
         viewportFraction: 1,
       ),

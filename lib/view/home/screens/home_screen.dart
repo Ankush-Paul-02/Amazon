@@ -2,6 +2,7 @@ import 'package:amazon/constants/common_functions.dart';
 import 'package:amazon/utils/colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../../constants/constants.dart';
 import '../widgets/home_address_bar.dart';
@@ -49,16 +50,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     final textTheme = Theme.of(context).textTheme;
     return SafeArea(
       child: Scaffold(
         backgroundColor: white,
         appBar: PreferredSize(
-          preferredSize: Size(width * 1, height * 0.09),
-          child: HomePageAppBar(
-              height: height, width: width, textTheme: textTheme),
+          preferredSize: Size(1.w, 9.h),
+          child: const HomePageAppBar(),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -70,12 +68,12 @@ class _HomeScreenState extends State<HomeScreen> {
               const HomeCategoryList(),
               CommonFunctions.divider(),
               //! Carousel sliders
-              HomeCarouselSliders(height: height),
+              const HomeCarouselSliders(),
               //! Latest deals
               HomeTodaysDeal(
                 todaysDealController: todaysDealController,
               ),
-              (height * 0.01).heightBox,
+              1.h.heightBox,
               CommonFunctions.divider(),
               //! Latest launches
               homeOtherOfferGrid(
@@ -84,18 +82,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       productPicNameList: headPhoneDeals,
                       offerFor: 'headPhones')
                   .box
-                  .width(width)
+                  .width(100.w)
                   .make()
-                  .pSymmetric(h: width * 0.03, v: height * 0.01),
-              (height * 0.01).heightBox,
+                  .pSymmetric(h: 3.w, v: 1.h),
+              1.h.heightBox,
               CommonFunctions.divider(),
               //! Insurance picture
               Image.asset(
                 'assets/images/offersNsponcered/insurance.png',
                 fit: BoxFit.fill,
-              ).box.width(width).make(),
+              ).box.width(100.w).make(),
               CommonFunctions.divider(),
-              (height * 0.01).heightBox,
+              1.h.heightBox,
               //! Latest launches
               homeOtherOfferGrid(
                       title: 'Minimum 70% Off | Top Offers in Clothing',
@@ -103,29 +101,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       productPicNameList: clothingsDeals,
                       offerFor: 'clothing')
                   .box
-                  .width(width)
+                  .width(100.w)
                   .make()
-                  .pSymmetric(h: width * 0.03, v: height * 0.01),
+                  .pSymmetric(h: 3.w, v: 1.h),
               // (height * 0.01).heightBox,
               CommonFunctions.divider(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  (height * 0.01).heightBox,
+                  1.h.heightBox,
                   'Water Sixer only miniTV'
                       .text
                       .textStyle(textTheme.bodyMedium)
                       .semiBold
                       .make()
-                      .pSymmetric(h: width * 0.03),
+                      .pSymmetric(h: 3.w),
                   Image.asset(
                     'assets/images/offersNsponcered/sixer.png',
                     fit: BoxFit.fill,
-                  )
-                      .box
-                      .width(width)
-                      .make()
-                      .pSymmetric(h: width * 0.03, v: height * 0.01),
+                  ).box.width(100.w).make().pSymmetric(h: 3.w, v: 1.h),
                 ],
               ),
             ],

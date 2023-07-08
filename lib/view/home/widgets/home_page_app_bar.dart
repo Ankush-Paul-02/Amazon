@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../../utils/colors.dart';
 
 class HomePageAppBar extends StatelessWidget {
   const HomePageAppBar({
     super.key,
-    required this.height,
-    required this.width,
-    required this.textTheme,
   });
-
-  final double height;
-  final double width;
-  final TextTheme textTheme;
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Container(
-      height: height * 0.09,
-      width: width * 0.81,
+      height: 9.h,
+      width: 81.w,
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: appBarGradientColor,
@@ -63,7 +58,7 @@ class HomePageAppBar extends StatelessWidget {
                 borderSide: BorderSide(color: grey),
               ),
             ),
-          ).box.width(width * 0.78).make(),
+          ).box.width(78.w).make(),
           IconButton(
             onPressed: () {},
             icon: Icon(
@@ -72,7 +67,7 @@ class HomePageAppBar extends StatelessWidget {
             ),
           ),
         ],
-      ).box.make().pSymmetric(h: width * 0.03, v: height * 0.01),
+      ).box.make().pSymmetric(h: 3.w, v: 1.h),
     );
   }
 }
