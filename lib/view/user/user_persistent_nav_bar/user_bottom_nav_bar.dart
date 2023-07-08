@@ -1,6 +1,6 @@
 import 'package:amazon/utils/colors.dart';
 import 'package:amazon/view/home/screens/home_screen.dart';
-import 'package:amazon/view/user/cart/cart_screen.dart';
+import 'package:amazon/view/user/cart/screens/cart_screen.dart';
 import 'package:amazon/view/user/menu/menu_screen.dart';
 import 'package:amazon/view/user/product_screen/screens/profile_screen.dart';
 import 'package:flutter/cupertino.dart';

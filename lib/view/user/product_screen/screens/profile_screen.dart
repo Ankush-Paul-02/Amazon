@@ -20,7 +20,6 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    // final textTheme = Theme.of(context).textTheme;
     return SafeArea(
       child: Scaffold(
         backgroundColor: white,
