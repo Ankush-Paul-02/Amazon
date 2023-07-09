@@ -1,7 +1,12 @@
 import 'package:amazon/constants/common_functions.dart';
+import 'package:amazon/controller/provider/address_provider.dart';
+import 'package:amazon/controller/services/user_data_crud/user_data_crud_services.dart';
 import 'package:amazon/utils/colors.dart';
+import 'package:amazon/view/user/address_screen/screens/address_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../../constants/constants.dart';
@@ -45,6 +50,91 @@ class _HomeScreenState extends State<HomeScreen> {
       case 3:
         return 'View all';
       default:
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      checkUserAddress();
+      context
+          .read<AddressProvider>()
+          .getCurrentSelectedAddress(context: context);
+    });
+  }
+
+  //! Check user address
+  checkUserAddress() async {
+    bool userAddressPresent =
+        await UserDataCRUD.checkUserAddress(context: context);
+    if (userAddressPresent == false) {
+      // ignore: use_build_context_synchronously
+      showModalBottomSheet(
+        context: context,
+        builder: (context) => Container(
+          height: 30.h,
+          width: 100.w,
+          padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
+          decoration: BoxDecoration(
+            color: white,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              'Add Address'.text.size(16).bold.make(),
+              ListView.builder(
+                itemCount: 1,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    width: 30.w,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: grey),
+                    ),
+                    alignment: Alignment.center,
+                    child: Builder(builder: (context) {
+                      if (index == 0) {
+                        return 'Add Address'
+                            .text
+                            .color(greyShade3)
+                            .size(14)
+                            .bold
+                            .make();
+                      }
+                      return 'Add Address'
+                          .text
+                          .color(greyShade3)
+                          .size(14)
+                          .bold
+                          .make();
+                    }),
+                  ).onInkTap(() {
+                    if (index == 0) {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          child: const AddressScreen(),
+                          type: PageTransitionType.rightToLeft,
+                        ),
+                      );
+                    }
+                  });
+                },
+              ).box.height(15.h).make(),
+            ],
+          ),
+        ),
+      );
     }
   }
 

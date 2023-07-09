@@ -12,6 +12,7 @@ class AddressModel {
   String? town;
   String? state;
   bool? isDefault;
+  String? docId;
 
   AddressModel({
     this.name,
@@ -24,6 +25,7 @@ class AddressModel {
     this.town,
     this.state,
     this.isDefault,
+    this.docId,
   });
 
   Map<String, dynamic> toMap() {
@@ -38,6 +40,7 @@ class AddressModel {
       'town': town,
       'state': state,
       'isDefault': isDefault,
+      'docId': docId,
     };
   }
 
@@ -53,6 +56,7 @@ class AddressModel {
       town: map['town'] != null ? map['town'] as String : null,
       state: map['state'] != null ? map['state'] as String : null,
       isDefault: map['isDefault'] != null ? map['isDefault'] as bool : null,
+      docId: map['docId'] != null ? map['docId'] as String : null,
     );
   }
 
