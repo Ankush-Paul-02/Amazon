@@ -27,7 +27,8 @@ class HomeScreenAddressBar extends StatelessWidget {
       ),
       child: Consumer<AddressProvider>(
         builder: (context, addressProvider, child) {
-          if (addressProvider.fetchedCurrentAddress == true) {
+          if (addressProvider.fetchedCurrentAddress &&
+              addressProvider.isPresentAddress) {
             AddressModel selectedAddress = addressProvider.currentAddress;
             return Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -48,7 +49,7 @@ class HomeScreenAddressBar extends StatelessWidget {
             children: [
               Icon(Icons.location_pin, color: black),
               2.w.widthBox,
-              'Deliver to user - city, state}'
+              'Deliver to user - city, state'
                   .text
                   .size(2.w)
                   .semiBold

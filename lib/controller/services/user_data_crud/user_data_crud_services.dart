@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_function_literals_in_foreach_calls
+
 import 'package:amazon/constants/constants.dart';
 import 'package:amazon/model/address_model.dart';
 import 'package:amazon/model/user_model.dart';

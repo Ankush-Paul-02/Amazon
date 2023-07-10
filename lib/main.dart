@@ -2,6 +2,7 @@ import 'package:amazon/controller/provider/address_provider.dart';
 import 'package:amazon/controller/provider/auth_provider/auth_provider.dart';
 import 'package:amazon/utils/theme.dart';
 import 'package:amazon/view/auth_screen/screens/signin_logic.dart';
+import 'package:amazon/view/seller/seller_persistant_nav_bar/seller_persistant_nav_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,8 @@ class AmazonApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Amazon',
           theme: theme,
-          home: const SignInLogic(),
+          // home: const SignInLogic(),
+          home: const SellerPersistentNavBar(),
         ),
       ),
     );
