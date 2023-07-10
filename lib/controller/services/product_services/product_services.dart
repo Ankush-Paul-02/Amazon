@@ -1,6 +1,9 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, avoid_function_literals_in_foreach_calls
 import 'dart:io';
 import 'package:amazon/constants/constants.dart';
+import 'package:amazon/controller/provider/product_provider/product_provider.dart';
+import 'package:amazon/model/product_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -45,9 +48,30 @@ class ProductServices {
       String imageUrl = await ref.getDownloadURL();
       imagesUrl.add(imageUrl);
     });
-    /**
-     * context.read<SellerProductProvider>()
-     * .updateProductImagesUrl(imageURLs: imagesURL);
-     */
+
+    context.read<ProductProvider>().updateProductImageURL(imageURLs: imagesUrl);
+  }
+
+  //! Get seller products
+  static Future<List<ProductModel>> getSellersProducts(
+      {required BuildContext context}) async {
+    List<ProductModel> sellerProducts = [];
+    try {
+      final QuerySnapshot<Map<String, dynamic>> snapshot = await firestore
+          .collection('Products')
+          .orderBy('uploadAt', descending: true)
+          .where('productSellerId', isEqualTo: auth.currentUser!.phoneNumber)
+          .get();
+      snapshot.docs.forEach((element) {
+        sellerProducts.add(
+          ProductModel.fromMap(
+            element.data(),
+          ),
+        );
+      });
+    } catch (e) {
+      VxToast.show(context, msg: e.toString());
+    }
+    return sellerProducts;
   }
 }
