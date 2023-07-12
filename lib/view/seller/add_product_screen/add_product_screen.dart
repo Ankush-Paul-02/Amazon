@@ -95,7 +95,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                 color: white,
                                 image: DecorationImage(
                                   image: FileImage(File(index.path)),
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             );
@@ -107,6 +107,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 },
               ),
             ),
+            
           ],
         )
             .box
