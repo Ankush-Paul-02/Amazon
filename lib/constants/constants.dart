@@ -59,3 +59,20 @@ List<String> clothingsDeals = [
   't_shirts.png',
   'view_all.png',
 ];
+
+
+List<String> productCategories = [
+  'Select Category',
+  'Electronics',
+  'Home',
+  'Mobiles',
+  'Fashion',
+  'Travel',
+  'Beauty',
+  'Furniture',
+  'Pharmacy',
+  'Movies',
+  'Grocery',
+  'Books',
+  'More'
+];

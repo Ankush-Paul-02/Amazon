@@ -1,15 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
+import 'package:velocity_x/velocity_x.dart';
+import '../../../../utils/colors.dart';
 
-class ProductCommonTextField extends StatefulWidget {
-  const ProductCommonTextField({super.key});
+class AddProductCommonTextField extends StatelessWidget {
+  const AddProductCommonTextField({
+    super.key,
+    required this.controller,
+    required this.hintText,
+  });
 
-  @override
-  State<ProductCommonTextField> createState() => _ProductCommonTextFieldState();
-}
+  final TextEditingController controller;
+  final String hintText;
 
-class _ProductCommonTextFieldState extends State<ProductCommonTextField> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final textTheme = Theme.of(context).textTheme;
+    return TextFormField(
+      textAlignVertical: TextAlignVertical.center,
+      textAlign: TextAlign.left,
+      controller: controller,
+      style: textTheme.bodySmall,
+      cursorColor: black,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 0.h),
+        hintText: hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(color: grey),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: secondaryColor),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(color: grey),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(color: grey),
+        ),
+      ),
+    ).box.margin(EdgeInsets.only(top: 2.h)).width(100.w).make();
   }
 }
+
+//ProductCommonTextField
+

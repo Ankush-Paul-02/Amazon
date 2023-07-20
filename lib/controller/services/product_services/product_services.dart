@@ -30,26 +30,26 @@ class ProductServices {
   }
 
   //! Upload image to firebase
-  static uploadImageToFirebase({
-    required BuildContext context,
+  static uploadImageToFirebaseStorage({
     required List<File> images,
+    required BuildContext context,
   }) async {
-    List<String> imagesUrl = [];
-    String sellerId = auth.currentUser!.phoneNumber!;
+    List<String> imagesURL = [];
+
+    String? sellerId = auth.currentUser?.phoneNumber;
     Uuid uuid = const Uuid();
 
-    //! push file and generate url
     await Future.forEach(images, (image) async {
       String imageName = '$sellerId${uuid.v1().toString()}';
-
       Reference ref = storage.ref().child('Product_Images').child(imageName);
       await ref.putFile(File(image.path));
-
-      String imageUrl = await ref.getDownloadURL();
-      imagesUrl.add(imageUrl);
+      String imageURL = await ref.getDownloadURL();
+      imagesURL.add(imageURL);
     });
 
-    context.read<ProductProvider>().updateProductImageURL(imageURLs: imagesUrl);
+    context
+        .read<ProductProvider>()
+        .updateProductImagesURL(imageURLs: imagesURL);
   }
 
   //! Get seller products
@@ -73,5 +73,24 @@ class ProductServices {
       VxToast.show(context, msg: e.toString());
     }
     return sellerProducts;
+  }
+
+  //! Add product
+  static Future addProduct({
+    required BuildContext context,
+    required ProductModel productModel,
+  }) async {
+    try {
+      await firestore
+          .collection('Products')
+          .doc(productModel.productID)
+          .set(productModel.toMap())
+          .whenComplete(() {
+        Navigator.pop(context);
+        VxToast.show(context, msg: 'Product added successfully.');
+      });
+    } catch (e) {
+      VxToast.show(context, msg: e.toString());
+    }
   }
 }
